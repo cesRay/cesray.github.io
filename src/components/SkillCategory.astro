@@ -9,7 +9,7 @@ interface Props {
 const { category, items } = Astro.props;
 ---
 
-<div class="skill-category">
+<div class="skill-category" data-category={category.toLowerCase()}>
   <h3 class="category-title">{category}</h3>
   <div class="chips-container">
     {items.map((item) => (

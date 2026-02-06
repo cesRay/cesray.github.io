@@ -6,7 +6,7 @@ interface Props {
 const { label } = Astro.props;
 ---
 
-<span class="chip">{label}</span>
+<span class="chip" data-skill={label.toLowerCase()}>{label}</span>
 
 <style>
   .chip {
@@ -18,12 +18,19 @@ const { label } = Astro.props;
     font-size: var(--font-size-sm);
     font-weight: 500;
     border: 1px solid var(--color-border);
-    transition: background-color var(--transition-fast), border-color var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
   }
 
   .chip:hover {
     background-color: var(--color-primary);
     border-color: var(--color-primary);
     color: white;
+  }
+
+  .chip.highlight {
+    background-color: #f97316;
+    border-color: #f97316;
+    color: white;
+    transform: scale(1.05);
   }
 </style>

@@ -11,7 +11,20 @@ const { skills } = resumeData;
     <h1 class="page-title">Skills</h1>
     <p class="page-description">Technologies, tools, and languages I work with.</p>
 
-    <div class="skills-list">
+    <div class="search-container">
+      <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/>
+        <path d="M21 21l-4.35-4.35"/>
+      </svg>
+      <input
+        type="text"
+        id="skill-search"
+        class="search-input"
+        placeholder="Type your skill of interest"
+      />
+    </div>
+
+    <div class="skills-list" id="skills-list">
       {skills.map((skill) => (
         <SkillCategory
           category={skill.category}
@@ -19,6 +32,10 @@ const { skills } = resumeData;
         />
       ))}
     </div>
+
+    <p id="no-results" class="no-results" style="display: none;">
+      No skills found matching your search.
+    </p>
   </section>
 </Layout>
 
@@ -35,7 +52,49 @@ const { skills } = resumeData;
   .page-description {
     color: var(--color-text-light);
     font-size: var(--font-size-lg);
-    margin-bottom: var(--spacing-2xl);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .search-container {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xl);
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: var(--spacing-sm);
+    transition: border-color var(--transition-fast);
+  }
+
+  .search-container:focus-within {
+    border-color: var(--color-primary);
+  }
+
+  .search-icon {
+    color: var(--color-text-light);
+    flex-shrink: 0;
+    transition: color var(--transition-fast);
+  }
+
+  .search-container:focus-within .search-icon {
+    color: var(--color-primary);
+  }
+
+  .search-input {
+    flex: 1;
+    padding: var(--spacing-xs) 0;
+    font-size: var(--font-size-lg);
+    font-family: inherit;
+    border: none;
+    background: transparent;
+    color: var(--color-text);
+  }
+
+  .search-input::placeholder {
+    color: var(--color-text-light);
+  }
+
+  .search-input:focus {
+    outline: none;
   }
 
   .skills-list {
@@ -43,4 +102,52 @@ const { skills } = resumeData;
     flex-direction: column;
     gap: var(--spacing-lg);
   }
+
+  .no-results {
+    text-align: center;
+    color: var(--color-text-light);
+    font-size: var(--font-size-lg);
+    padding: var(--spacing-2xl);
+  }
 </style>
+
+<script>
+  const searchInput = document.getElementById('skill-search') as HTMLInputElement;
+  const skillsList = document.getElementById('skills-list');
+  const noResults = document.getElementById('no-results');
+  const categories = document.querySelectorAll('.skill-category');
+
+  searchInput?.addEventListener('input', () => {
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    let anyVisible = false;
+
+    categories.forEach((category) => {
+      const categoryName = category.getAttribute('data-category') || '';
+      const chips = category.querySelectorAll('.chip');
+      let categoryMatch = categoryName.includes(searchTerm);
+      let anyChipMatch = false;
+
+      chips.forEach((chip) => {
+        const skillName = chip.getAttribute('data-skill') || '';
+        const chipMatch = skillName.includes(searchTerm);
+
+        chip.classList.toggle('highlight', chipMatch && searchTerm !== '');
+
+        if (chipMatch) {
+          anyChipMatch = true;
+        }
+      });
+
+      const shouldShow = searchTerm === '' || categoryMatch || anyChipMatch;
+      (category as HTMLElement).style.display = shouldShow ? '' : 'none';
+
+      if (shouldShow) {
+        anyVisible = true;
+      }
+    });
+
+    if (noResults) {
+      noResults.style.display = anyVisible ? 'none' : 'block';
+    }
+  });
+</script>
