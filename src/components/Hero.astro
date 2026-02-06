@@ -8,6 +8,7 @@ interface Props {
   ctaHref?: string;
   github?: string;
   linkedin?: string;
+  email?: string;
 }
 
 const {
@@ -17,6 +18,7 @@ const {
   ctaHref = "/experience",
   github,
   linkedin,
+  email,
 } = Astro.props;
 ---
 
@@ -46,7 +48,7 @@ const {
   </a>
 
   <div class="hero-social">
-    <SocialIcons github={github} linkedin={linkedin} />
+    <SocialIcons github={github} linkedin={linkedin} email={email} />
   </div>
 </section>
 
