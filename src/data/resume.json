@@ -6,7 +6,8 @@
     "ctaText": "Get to know me",
     "socials": {
       "github": "https://github.com/cesRay",
-      "linkedin": "https://www.linkedin.com/in/c%C3%A9sar-a-rayas-05744819b/"
+      "linkedin": "https://www.linkedin.com/in/c%C3%A9sar-a-rayas-05744819b/",
+      "email": "cesar.rayas.c@gmail.com"
     }
   },
   "experience": [
@@ -66,8 +67,12 @@
       "items": ["AWS", "Supabase", "Git", "Docker", "Linux"]
     },
     {
+      "category": "AI Toolbox",
+      "items": ["Claude Code", "Gemini"]
+    },
+    {
       "category": "Languages",
-      "items": ["English (Advanced)", "Spanish (Native)"]
+      "items": ["English (Bilingual)", "Spanish (Native)"]
     }
   ],
   "education": [
