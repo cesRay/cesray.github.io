@@ -1,0 +1,53 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ExperienceCard from "../components/ExperienceCard.astro";
+import resumeData from "../data/resume.json";
+
+const { experience } = resumeData;
+---
+
+<Layout title="Experience | About Me">
+  <section class="experience-page">
+    <h1 class="page-title">Experience</h1>
+    <p class="page-description">
+      My professional journey and the roles that have shaped my career.
+    </p>
+
+    <div class="experience-list">
+      {
+        experience.map((job) => (
+          <ExperienceCard
+            title={job.title}
+            subtitle={job.subtitle}
+            subtitleUrl={job.subtitleUrl}
+            period={job.period}
+            description={job.description}
+          />
+        ))
+      }
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .experience-page {
+    padding: var(--spacing-lg) 0;
+  }
+
+  .page-title {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .page-description {
+    color: var(--color-text-light);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+</style>

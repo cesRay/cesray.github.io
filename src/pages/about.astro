@@ -1,0 +1,215 @@
+---
+import Layout from "../layouts/Layout.astro";
+import resumeData from "../data/resume.json";
+
+const { personal } = resumeData;
+
+// Calculate age
+const birthDate = new Date(1997, 3, 18); // April 18, 1997
+const today = new Date();
+let age = today.getFullYear() - birthDate.getFullYear();
+const monthDiff = today.getMonth() - birthDate.getMonth();
+if (
+  monthDiff < 0 ||
+  (monthDiff === 0 && today.getDate() < birthDate.getDate())
+) {
+  age--;
+}
+---
+
+<Layout title="About | About Me">
+  <section class="about-page">
+    <div class="about-header">
+      <img
+        src="/images/about-me-photo.jpeg"
+        alt={personal.name}
+        class="about-photo"
+      />
+      <div class="about-intro">
+        <h1 class="page-title">About Me</h1>
+        <p class="about-tagline">{personal.motto}</p>
+        <div class="about-chips">
+          <span class="info-chip">{age} years old</span>
+          <span class="info-chip">📍 Guadalajara, Mexico</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-content">
+      <div class="about-section">
+        <h2>Who I Am</h2>
+        <p>
+          I am a Senior Software Engineer with a background in Robotics
+          Engineering and a decade-long passion for mentorship. With over 6
+          years of experience building complex systems, I’ve learned that the
+          most <i>elegant solution</i> isn't just clean code; it’s a high-performing,
+          empowered team. I specialize in bridging technical architecture with product
+          thinking, focusing my energy on cultivating talent and helping my peers
+          evolve into world-class professionals.
+        </p>
+      </div>
+
+      <div class="about-section">
+        <h2>What I Do</h2>
+        <p>
+          I bridge the gap between complex technical requirements and
+          high-impact product delivery. My focus is on architecting scalable
+          applications that prioritize performance, accessibility, and seamless
+          user experience. I approach every project with a product-first
+          mindset: I don’t just build features; I solve business problems by
+          aligning technical strategy with organizational goals.
+        </p>
+      </div>
+
+      <div class="about-section">
+        <h2>My Journey</h2>
+        <p>
+          My path in tech has been driven by curiosity and a desire to create.
+          Every project is an opportunity to learn something new and push the
+          boundaries of what's possible.
+        </p>
+        <p>
+          I have worked in a variety of software products throughout my career,
+          from so many different industries and disciplines: medical, financial,
+          estate management, IoT monitoring, sales, and more. My job has been to
+          understand these businesses in order to deliver the best possible
+          product.
+        </p>
+        <p>
+          With the years, I've shifted from high technical performance to a more
+          managerial position, helping teams deliver high quality software while
+          empowering them to become leaders themselves.
+        </p>
+      </div>
+    </div>
+
+    <div class="about-gallery">
+      <h2>Gallery</h2>
+      <div class="gallery-grid">
+        <img src="/images/mohara.jpg" alt="Mohara" class="gallery-photo" />
+        <img src="/images/teach.jpg" alt="Teaching" class="gallery-photo" />
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .about-page {
+    padding: var(--spacing-lg) 0;
+  }
+
+  .about-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .about-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+  }
+
+  .about-intro {
+    flex: 1;
+  }
+
+  .page-title {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .about-tagline {
+    color: var(--color-text-light);
+    font-size: var(--font-size-lg);
+  }
+
+  .about-chips {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+  }
+
+  .info-chip {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-md);
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    border: 1px solid var(--color-border);
+  }
+
+  .about-content {
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .about-section {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .about-section h2 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-primary);
+  }
+
+  .about-section p {
+    color: var(--color-text);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .about-section p:last-child {
+    margin-bottom: 0;
+  }
+
+  .about-list {
+    color: var(--color-text);
+    line-height: 1.8;
+    margin-left: var(--spacing-lg);
+    margin-top: var(--spacing-sm);
+  }
+
+  .about-list li {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .about-gallery h2 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-primary);
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+
+  .gallery-photo {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+  }
+
+  @media (max-width: 768px) {
+    .about-header {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .about-photo {
+      width: 120px;
+      height: 120px;
+    }
+
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

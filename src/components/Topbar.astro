@@ -1,0 +1,149 @@
+---
+import Logo from './Logo.astro';
+import Navigation from './Navigation.astro';
+import SocialIcons from './SocialIcons.astro';
+import resumeData from '../data/resume.json';
+
+const { personal } = resumeData;
+---
+
+<header class="topbar">
+  <div class="topbar-content">
+    <Logo initials={personal.initials} size="small" />
+
+    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </div>
+
+  <div class="dropdown" aria-hidden="true">
+    <div class="dropdown-nav">
+      <Navigation orientation="vertical" />
+    </div>
+    <div class="dropdown-social">
+      <SocialIcons
+        github={personal.socials.github}
+        linkedin={personal.socials.linkedin}
+      />
+    </div>
+  </div>
+</header>
+
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const dropdown = document.querySelector('.dropdown');
+  const topbar = document.querySelector('.topbar');
+
+  hamburger?.addEventListener('click', () => {
+    const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+    hamburger.setAttribute('aria-expanded', String(!isExpanded));
+    dropdown?.setAttribute('aria-hidden', String(isExpanded));
+    topbar?.classList.toggle('menu-open');
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    if (!topbar?.contains(target) && topbar?.classList.contains('menu-open')) {
+      hamburger?.setAttribute('aria-expanded', 'false');
+      dropdown?.setAttribute('aria-hidden', 'true');
+      topbar?.classList.remove('menu-open');
+    }
+  });
+
+  // Close menu when clicking a nav link
+  dropdown?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      hamburger?.setAttribute('aria-expanded', 'false');
+      dropdown?.setAttribute('aria-hidden', 'true');
+      topbar?.classList.remove('menu-open');
+    });
+  });
+</script>
+
+<style>
+  .topbar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--color-background);
+    border-bottom: 1px solid var(--color-border);
+    z-index: 100;
+  }
+
+  .topbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-sm) var(--spacing-md);
+    height: var(--topbar-height);
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-md);
+    transition: background-color var(--transition-fast);
+  }
+
+  .hamburger:hover {
+    background-color: var(--color-surface);
+  }
+
+  .hamburger-line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-text);
+    border-radius: 1px;
+    transition: transform var(--transition-normal), opacity var(--transition-normal);
+  }
+
+  .topbar.menu-open .hamburger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .topbar.menu-open .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .topbar.menu-open .hamburger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .dropdown {
+    max-height: 0;
+    overflow: hidden;
+    background-color: var(--color-background);
+    border-bottom: 1px solid var(--color-border);
+    transition: max-height var(--transition-normal);
+  }
+
+  .topbar.menu-open .dropdown {
+    max-height: 400px;
+  }
+
+  .dropdown-nav {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .dropdown-social {
+    padding: var(--spacing-md);
+  }
+
+  @media (max-width: 768px) {
+    .topbar {
+      display: block;
+    }
+  }
+</style>

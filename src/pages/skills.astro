@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SkillCategory from '../components/SkillCategory.astro';
+import resumeData from '../data/resume.json';
+
+const { skills } = resumeData;
+---
+
+<Layout title="Skills | About Me">
+  <section class="skills-page">
+    <h1 class="page-title">Skills</h1>
+    <p class="page-description">Technologies, tools, and languages I work with.</p>
+
+    <div class="skills-list">
+      {skills.map((skill) => (
+        <SkillCategory
+          category={skill.category}
+          items={skill.items}
+        />
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .skills-page {
+    padding: var(--spacing-lg) 0;
+  }
+
+  .page-title {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .page-description {
+    color: var(--color-text-light);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+</style>

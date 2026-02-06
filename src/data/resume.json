@@ -1,0 +1,96 @@
+{
+  "personal": {
+    "initials": "CR",
+    "name": "César Rayas",
+    "motto": "Leading technical excellence through team empowerment.",
+    "ctaText": "Get to know me",
+    "socials": {
+      "github": "https://github.com/cesRay",
+      "linkedin": "https://www.linkedin.com/in/c%C3%A9sar-a-rayas-05744819b/"
+    }
+  },
+  "experience": [
+    {
+      "title": "Senior Software Engineer / Tech Lead",
+      "subtitle": "Mohara",
+      "subtitleUrl": "https://mohara.co",
+      "period": "Dec 2024 - Present",
+      "description": "Led and guided a team of young product thinkers into building high quality software, automating development and organizational processes and offering our clients an enjoyable experience!"
+    },
+    {
+      "title": "Software Engineer Mid Level",
+      "subtitle": "Mohara",
+      "subtitleUrl": "https://mohara.co",
+      "period": "Oct 2022 - Dec 2024",
+      "description": "Collaborated with software engineering teams to develop products from many different industries and discliplines. Not only did I develop expertise building and scalling software using state of the art technologies, but also championed client and team management challenges."
+    },
+    {
+      "title": "Junior Software Developer",
+      "subtitle": "Gravity Epoch",
+      "subtitleUrl": "https://www.gravityepoch.com",
+      "period": "Mar 2020 - Oct 2022",
+      "description": "I spent my early engineering days working with a small team of brilliant out-of-the-box thinkers, championing product development with a multidiciplinary approach."
+    }
+  ],
+  "skills": [
+    {
+      "category": "Programming Languages",
+      "items": ["TypeScript", "Python", "Rust", "C", "C++", "C#", "Java"]
+    },
+    {
+      "category": "Frontend",
+      "items": [
+        "Next / React",
+        "Expo / React Native",
+        "Astro",
+        "HTML",
+        "CSS",
+        "Tailwind"
+      ]
+    },
+    {
+      "category": "Backend",
+      "items": [
+        "Node",
+        "Express",
+        "Django",
+        "PostgreSQL",
+        "MongoDB",
+        "REST APIs",
+        "GrpahQL",
+        "tRPC"
+      ]
+    },
+    {
+      "category": "Tools & Platforms",
+      "items": ["AWS", "Supabase", "Git", "Docker", "Linux"]
+    },
+    {
+      "category": "Languages",
+      "items": ["English (Advanced)", "Spanish (Native)"]
+    }
+  ],
+  "education": [
+    {
+      "title": "Robotics Engineering",
+      "subtitle": "University of Guadalajara",
+      "subtitleUrl": "https://www.udg.mx",
+      "period": "2017 - 2022",
+      "description": "Forged really strong math, physics, electronics and software fundamentals. Graduating with a high note, while having fun building exciting technology projects!"
+    },
+    {
+      "title": "Bachelor of Finance (Unfinished)",
+      "subtitle": "ITAM",
+      "subtitleUrl": "https://www.itam.mx",
+      "period": "2015 - 2017",
+      "description": "I spent my initial university days learning about market dynamics and businesses. Though unfinished, my time here forged in me a high demand for excellence and quality."
+    },
+    {
+      "title": "Leadership Summer Camp",
+      "subtitle": "Phillips Exeter Academy",
+      "subtitleUrl": "https://www.exeter.edu",
+      "period": "2014",
+      "description": "Attended a Leadership and Economics program in New Hampshire, USA. I shared a campus with teenagers from over 80 countries, while learning and applying leadership skills that impacted both my personal and professional life going forward."
+    }
+  ]
+}

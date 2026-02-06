@@ -1,0 +1,133 @@
+---
+
+---
+
+<button class="theme-toggle" aria-label="Toggle dark mode">
+  <svg
+    class="icon sun-icon"
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <circle cx="12" cy="12" r="5"></circle>
+    <line x1="12" y1="1" x2="12" y2="3"></line>
+    <line x1="12" y1="21" x2="12" y2="23"></line>
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+    <line x1="1" y1="12" x2="3" y2="12"></line>
+    <line x1="21" y1="12" x2="23" y2="12"></line>
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+  </svg>
+  <svg
+    class="icon moon-icon"
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+  </svg>
+  <span class="label light-label">Light mode</span>
+  <span class="label dark-label">Dark mode</span>
+</button>
+
+<script>
+  const themeToggle = document.querySelector(".theme-toggle");
+
+  // Check for saved theme preference or default to light
+  const getTheme = () => {
+    const saved = localStorage.getItem("theme");
+    if (saved) return saved;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  };
+
+  // Apply theme to document
+  const applyTheme = (theme: string) => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  };
+
+  // Initialize theme
+  applyTheme(getTheme());
+
+  // Toggle theme on button click
+  themeToggle?.addEventListener("click", () => {
+    const currentTheme = document.documentElement.getAttribute("data-theme");
+    const newTheme = currentTheme === "dark" ? "light" : "dark";
+    applyTheme(newTheme);
+  });
+</script>
+
+<style>
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    color: var(--color-text);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    transition:
+      background-color var(--transition-fast),
+      border-color var(--transition-fast);
+  }
+
+  .theme-toggle:hover {
+    background-color: var(--color-border);
+  }
+
+  .icon {
+    flex-shrink: 0;
+  }
+
+  /* Light mode: show sun icon and "Light mode" label */
+  .sun-icon {
+    display: block;
+  }
+
+  .moon-icon {
+    display: none;
+  }
+
+  .light-label {
+    display: inline;
+  }
+
+  .dark-label {
+    display: none;
+  }
+
+  /* Dark mode: show moon icon and "Dark mode" label */
+  :global([data-theme="dark"]) .sun-icon {
+    display: none;
+  }
+
+  :global([data-theme="dark"]) .moon-icon {
+    display: block;
+  }
+
+  :global([data-theme="dark"]) .light-label {
+    display: none;
+  }
+
+  :global([data-theme="dark"]) .dark-label {
+    display: inline;
+  }
+</style>

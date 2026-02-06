@@ -1,0 +1,18 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import resumeData from "../data/resume.json";
+
+const { personal } = resumeData;
+---
+
+<Layout title="Home | About Me" showSidebar={false}>
+  <Hero
+    name={personal.name}
+    motto={personal.motto}
+    ctaText={personal.ctaText}
+    ctaHref="/about"
+    github={personal.socials.github}
+    linkedin={personal.socials.linkedin}
+  />
+</Layout>

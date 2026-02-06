@@ -1,0 +1,54 @@
+---
+interface Props {
+  initials?: string;
+  size?: 'small' | 'medium' | 'large';
+}
+
+const { initials = 'CR', size = 'medium' } = Astro.props;
+---
+
+<a href="/" class:list={['logo', size]} aria-label="Home">
+  <span class="logo-text">{initials}</span>
+</a>
+
+<style>
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    color: white;
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .logo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    color: white;
+  }
+
+  .logo.small {
+    width: 40px;
+    height: 40px;
+    font-size: var(--font-size-sm);
+  }
+
+  .logo.medium {
+    width: 56px;
+    height: 56px;
+    font-size: var(--font-size-lg);
+  }
+
+  .logo.large {
+    width: 72px;
+    height: 72px;
+    font-size: var(--font-size-xl);
+  }
+
+  .logo-text {
+    user-select: none;
+  }
+</style>

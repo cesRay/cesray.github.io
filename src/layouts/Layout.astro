@@ -1,0 +1,84 @@
+---
+import "../styles/global.css";
+import Sidebar from "../components/Sidebar.astro";
+import Topbar from "../components/Topbar.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
+
+interface Props {
+  title?: string;
+  showSidebar?: boolean;
+}
+
+const { title = "About Me", showSidebar = true } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <script is:inline>
+      // Prevent flash of wrong theme
+      const theme =
+        localStorage.getItem("theme") ||
+        (window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    </script>
+  </head>
+  <body>
+    <div class="theme-toggle-wrapper">
+      <ThemeToggle />
+    </div>
+    <Topbar />
+    <div class:list={["layout", { "no-sidebar": !showSidebar }]}>
+      <main class="content">
+        <slot />
+      </main>
+      {showSidebar && <Sidebar />}
+    </div>
+  </body>
+</html>
+
+<style>
+  .theme-toggle-wrapper {
+    position: fixed;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    z-index: 200;
+  }
+
+  .layout {
+    min-height: 100vh;
+    display: flex;
+  }
+
+  .content {
+    flex: 1;
+    max-width: var(--content-max-width);
+    margin-left: var(--sidebar-width);
+    padding: var(--spacing-2xl);
+  }
+
+  .no-sidebar .content {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 768px) {
+    .theme-toggle-wrapper {
+      top: calc(var(--topbar-height) + var(--spacing-md));
+    }
+
+    .content {
+      margin-left: 0;
+      padding: var(--spacing-lg);
+      padding-top: calc(var(--topbar-height) + var(--spacing-lg));
+    }
+  }
+</style>

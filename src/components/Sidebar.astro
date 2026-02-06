@@ -1,0 +1,94 @@
+---
+import Navigation from "./Navigation.astro";
+import SocialIcons from "./SocialIcons.astro";
+import resumeData from "../data/resume.json";
+
+const { personal } = resumeData;
+---
+
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <a href="/" class="sidebar-photo-link" aria-label="Home">
+      <img src="/images/photo.jpeg" alt={personal.name} class="sidebar-photo" />
+    </a>
+    <span class="sidebar-name">{personal.name}</span>
+  </div>
+
+  <div class="sidebar-nav">
+    <Navigation orientation="vertical" />
+  </div>
+
+  <div class="sidebar-footer">
+    <SocialIcons
+      github={personal.socials.github}
+      linkedin={personal.socials.linkedin}
+    />
+  </div>
+</aside>
+
+<style>
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    background-color: var(--color-background);
+    border-right: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-xl);
+    z-index: 100;
+  }
+
+  .sidebar-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding-bottom: var(--spacing-xl);
+  }
+
+  .sidebar-photo-link {
+    display: block;
+    border-radius: var(--radius-full);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .sidebar-photo-link:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(87, 67, 67, 0.4);
+  }
+
+  .sidebar-photo {
+    width: 72px;
+    height: 72px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+  }
+
+  .sidebar-name {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-text);
+    text-align: center;
+  }
+
+  .sidebar-nav {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    padding: var(--spacing-xl) 0;
+  }
+
+  .sidebar-footer {
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid var(--color-border);
+  }
+
+  @media (max-width: 768px) {
+    .sidebar {
+      display: none;
+    }
+  }
+</style>

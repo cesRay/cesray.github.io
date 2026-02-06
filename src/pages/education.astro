@@ -1,0 +1,53 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ExperienceCard from "../components/ExperienceCard.astro";
+import resumeData from "../data/resume.json";
+
+const { education } = resumeData;
+---
+
+<Layout title="Education | About Me">
+  <section class="education-page">
+    <h1 class="page-title">Education</h1>
+    <p class="page-description">
+      My academic background and continuous learning journey.
+    </p>
+
+    <div class="education-list">
+      {
+        education.map((edu) => (
+          <ExperienceCard
+            title={edu.title}
+            subtitle={edu.subtitle}
+            subtitleUrl={edu.subtitleUrl}
+            period={edu.period}
+            description={edu.description}
+          />
+        ))
+      }
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .education-page {
+    padding: var(--spacing-lg) 0;
+  }
+
+  .page-title {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .page-description {
+    color: var(--color-text-light);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .education-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+</style>
