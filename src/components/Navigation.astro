@@ -1,16 +1,19 @@
 ---
+import en from '../data/en.json';
+
 interface Props {
   orientation?: 'vertical' | 'horizontal';
 }
 
 const { orientation = 'vertical' } = Astro.props;
 const currentPath = Astro.url.pathname;
+const { nav } = en;
 
 const navItems = [
-  { href: '/about', label: 'About' },
-  { href: '/experience', label: 'Experience' },
-  { href: '/skills', label: 'Skills' },
-  { href: '/education', label: 'Education' },
+  { href: '/about', label: nav.about, i18nKey: 'nav.about' },
+  { href: '/experience', label: nav.experience, i18nKey: 'nav.experience' },
+  { href: '/skills', label: nav.skills, i18nKey: 'nav.skills' },
+  { href: '/education', label: nav.education, i18nKey: 'nav.education' },
 ];
 ---
 
@@ -21,6 +24,7 @@ const navItems = [
         <a
           href={item.href}
           class:list={['nav-link', { active: currentPath === item.href || currentPath === item.href + '/' }]}
+          data-i18n={item.i18nKey}
         >
           {item.label}
         </a>

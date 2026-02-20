@@ -10,6 +10,55 @@
       "email": "cesar.rayas.c@gmail.com"
     }
   },
+  "nav": {
+    "about": "About",
+    "experience": "Experience",
+    "skills": "Skills",
+    "education": "Education"
+  },
+  "pages": {
+    "about": {
+      "title": "About Me",
+      "ageChip": "{age} years old",
+      "locationChip": "📍 Guadalajara, Mexico",
+      "sections": [
+        {
+          "heading": "Who I Am",
+          "paragraphs": [
+            "I am a Senior Software Engineer with a background in Robotics Engineering and a decade-long passion for mentorship. With over 6 years of experience building complex systems, I've learned that the most elegant solution isn't just clean code; it's a high-performing, empowered team. I specialize in bridging technical architecture with product thinking, focusing my energy on cultivating talent and helping my peers evolve into world-class professionals."
+          ]
+        },
+        {
+          "heading": "What I Do",
+          "paragraphs": [
+            "I bridge the gap between complex technical requirements and high-impact product delivery. My focus is on architecting scalable applications that prioritize performance, accessibility, and seamless user experience. I approach every project with a product-first mindset: I don't just build features; I solve business problems by aligning technical strategy with organizational goals."
+          ]
+        },
+        {
+          "heading": "My Journey",
+          "paragraphs": [
+            "My path in tech has been driven by curiosity and a desire to create. Every project is an opportunity to learn something new and push the boundaries of what's possible.",
+            "I have worked in a variety of software products throughout my career, from so many different industries and disciplines: <u>medical</u>, <u>financial</u>, <u>estate management</u>, <u>IoT monitoring</u>, <u>sales</u>, <u>AI integrations</u> and more. My job has been to understand these businesses in order to deliver the best possible product.",
+            "With the years, I've shifted from high technical performance to a more managerial position, helping teams deliver high quality software while empowering them to become leaders themselves."
+          ]
+        }
+      ]
+    },
+    "experience": {
+      "title": "Experience",
+      "description": "My professional journey and the roles that have shaped my career."
+    },
+    "skills": {
+      "title": "Skills",
+      "description": "Technologies, tools, and languages I work with.",
+      "searchPlaceholder": "Type your skill of interest",
+      "noResults": "No skills found matching your search."
+    },
+    "education": {
+      "title": "Education",
+      "description": "My academic background and continuous learning journey."
+    }
+  },
   "experience": [
     {
       "title": "Senior Software Engineer / Tech Lead",
@@ -79,7 +128,7 @@
     {
       "title": "Robotics Engineering",
       "subtitle": "University of Guadalajara",
-      "subtitleUrl": "https://www.udg.mx",
+      "subtitleUrl": "https://cucei.udg.mx",
       "period": "2017 - 2022",
       "description": "Forged really strong math, physics, electronics and software fundamentals. Graduating with a high note, while having fun building exciting technology projects!"
     },

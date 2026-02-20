@@ -5,15 +5,16 @@ interface Props {
   subtitleUrl?: string;
   period: string;
   description: string;
+  i18nPrefix?: string;
 }
 
-const { title, subtitle, subtitleUrl, period, description } = Astro.props;
+const { title, subtitle, subtitleUrl, period, description, i18nPrefix } = Astro.props;
 ---
 
 <article class="experience-card">
   <div class="card-header">
     <div class="card-titles">
-      <h3 class="card-title">{title}</h3>
+      <h3 class="card-title" data-i18n={i18nPrefix ? `${i18nPrefix}.title` : undefined}>{title}</h3>
       {
         subtitleUrl ? (
           <a
@@ -21,17 +22,18 @@ const { title, subtitle, subtitleUrl, period, description } = Astro.props;
             target="_blank"
             rel="noopener noreferrer"
             class="card-subtitle card-subtitle-link"
+            data-i18n={i18nPrefix ? `${i18nPrefix}.subtitle` : undefined}
           >
             {subtitle}
           </a>
         ) : (
-          <p class="card-subtitle">{subtitle}</p>
+          <p class="card-subtitle" data-i18n={i18nPrefix ? `${i18nPrefix}.subtitle` : undefined}>{subtitle}</p>
         )
       }
     </div>
-    <span class="card-period">{period}</span>
+    <span class="card-period" data-i18n={i18nPrefix ? `${i18nPrefix}.period` : undefined}>{period}</span>
   </div>
-  <p class="card-description">{description}</p>
+  <p class="card-description" data-i18n={i18nPrefix ? `${i18nPrefix}.description` : undefined}>{description}</p>
 </article>
 
 <style>

@@ -4,16 +4,17 @@ import Chip from './Chip.astro';
 interface Props {
   category: string;
   items: string[];
+  i18nPrefix?: string;
 }
 
-const { category, items } = Astro.props;
+const { category, items, i18nPrefix } = Astro.props;
 ---
 
 <div class="skill-category" data-category={category.toLowerCase()}>
-  <h3 class="category-title">{category}</h3>
+  <h3 class="category-title" data-i18n={i18nPrefix ? `${i18nPrefix}.category` : undefined}>{category}</h3>
   <div class="chips-container">
-    {items.map((item) => (
-      <Chip label={item} />
+    {items.map((item, j) => (
+      <Chip label={item} i18nKey={i18nPrefix ? `${i18nPrefix}.items.${j}` : undefined} />
     ))}
   </div>
 </div>

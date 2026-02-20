@@ -3,6 +3,9 @@ import "../styles/global.css";
 import Sidebar from "../components/Sidebar.astro";
 import Topbar from "../components/Topbar.astro";
 import ThemeToggle from "../components/ThemeToggle.astro";
+import LanguageDropdown from "../components/LanguageDropdown.astro";
+import en from "../data/en.json";
+import es from "../data/es.json";
 
 interface Props {
   title?: string;
@@ -38,10 +41,15 @@ const { title = "César Rayas", showSidebar = true } = Astro.props;
           ? "dark"
           : "light");
       document.documentElement.setAttribute("data-theme", theme);
+
+      // Set html lang attribute
+      var lang = localStorage.getItem("lang") || "en";
+      document.documentElement.setAttribute("lang", lang);
     </script>
   </head>
   <body>
-    <div class="theme-toggle-wrapper">
+    <div class="controls-wrapper">
+      <LanguageDropdown />
       <ThemeToggle />
     </div>
     <Topbar />
@@ -51,15 +59,55 @@ const { title = "César Rayas", showSidebar = true } = Astro.props;
       </main>
       {showSidebar && <Sidebar />}
     </div>
+    <script is:inline define:vars={{ en, es }}>
+      (function() {
+        var lang = localStorage.getItem("lang") || "en";
+        if (lang === "en") return;
+
+        var locales = { en: en, es: es };
+        var data = locales[lang];
+        if (!data) return;
+
+        function resolve(obj, path) {
+          return path.split(".").reduce(function(o, k) {
+            return o && o[k];
+          }, obj);
+        }
+
+        document.querySelectorAll("[data-i18n]").forEach(function(el) {
+          var key = el.getAttribute("data-i18n");
+          var value = resolve(data, key);
+          if (value !== undefined) {
+            var replaceAttr = el.getAttribute("data-i18n-replace");
+            if (replaceAttr) {
+              var parts = replaceAttr.split(":");
+              value = value.replace(parts[0], parts[1]);
+            }
+            el.innerHTML = value;
+          }
+        });
+
+        document.querySelectorAll("[data-i18n-placeholder]").forEach(function(el) {
+          var key = el.getAttribute("data-i18n-placeholder");
+          var value = resolve(data, key);
+          if (value !== undefined) {
+            el.setAttribute("placeholder", value);
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
 
 <style>
-  .theme-toggle-wrapper {
+  .controls-wrapper {
     position: fixed;
     top: var(--spacing-md);
     right: var(--spacing-md);
     z-index: 200;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
   }
 
   .layout {
@@ -80,7 +128,7 @@ const { title = "César Rayas", showSidebar = true } = Astro.props;
   }
 
   @media (max-width: 768px) {
-    .theme-toggle-wrapper {
+    .controls-wrapper {
       display: none;
     }
 

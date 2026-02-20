@@ -1,0 +1,150 @@
+{
+  "personal": {
+    "initials": "CR",
+    "name": "César Rayas",
+    "motto": "Liderando excelencia técnica a través del empoderamiento.",
+    "ctaText": "Conóceme",
+    "socials": {
+      "github": "https://github.com/cesRay",
+      "linkedin": "https://www.linkedin.com/in/c%C3%A9sar-a-rayas-05744819b/",
+      "email": "cesar.rayas.c@gmail.com"
+    }
+  },
+  "nav": {
+    "about": "Sobre Mí",
+    "experience": "Experiencia",
+    "skills": "Habilidades",
+    "education": "Educación"
+  },
+  "pages": {
+    "about": {
+      "title": "Sobre Mí",
+      "ageChip": "{age} años",
+      "locationChip": "📍 Guadalajara, México",
+      "sections": [
+        {
+          "heading": "¿Quién Soy?",
+          "paragraphs": [
+            "Soy un Ingeniero de Software Senior con formación en Ingeniería Robótica y una pasión de más de una década por la mentoría. Con más de 6 años de experiencia construyendo sistemas complejos, he aprendido que la solución más elegante no es solo código limpio, sino un equipo empoderado y de alto rendimiento. Me especializo en conectar la arquitectura técnica con el pensamiento de producto, enfocando mi energía en cultivar talento y ayudar a mis compañeros a convertirse en profesionales de clase mundial."
+          ]
+        },
+        {
+          "heading": "Lo Que Hago",
+          "paragraphs": [
+            "Conecto la brecha entre los requerimientos técnicos complejos y la entrega de productos de alto impacto. Mi enfoque está en diseñar aplicaciones escalables que prioricen el rendimiento, la accesibilidad y una experiencia de usuario fluida. Abordo cada proyecto con una mentalidad orientada al producto: no solo construyo funcionalidades; resuelvo problemas de negocio alineando la estrategia técnica con los objetivos organizacionales."
+          ]
+        },
+        {
+          "heading": "Mi Trayectoria",
+          "paragraphs": [
+            "Mi camino en la tecnología ha sido impulsado por la curiosidad y el deseo de crear. Cada proyecto es una oportunidad para aprender algo nuevo y empujar los límites de lo posible.",
+            "He trabajado en una variedad de productos de software a lo largo de mi carrera, en muchas industrias y disciplinas diferentes: <u>médica</u>, <u>financiera</u>, <u>administración inmobiliaria</u>, <u>monitoreo IoT</u>, <u>ventas</u>, <u>integraciones de IA</u> y más. Mi trabajo ha sido comprender estos negocios para entregar el mejor producto posible.",
+            "Con los años, he pasado de un alto rendimiento técnico a una posición un poco más administrativa, ayudando a los equipos a entregar software de alta calidad y empujándolos a convertirse en líderes ellos mismos."
+          ]
+        }
+      ]
+    },
+    "experience": {
+      "title": "Experiencia",
+      "description": "Mi trayectoria profesional y los roles que han dado forma a mi carrera."
+    },
+    "skills": {
+      "title": "Habilidades",
+      "description": "Tecnologías, herramientas y lenguajes con los que trabajo.",
+      "searchPlaceholder": "Escribe la habilidad que te interesa",
+      "noResults": "No se encontraron habilidades que coincidan con tu búsqueda."
+    },
+    "education": {
+      "title": "Educación",
+      "description": "Mi formación académica y mi camino de aprendizaje continuo."
+    }
+  },
+  "experience": [
+    {
+      "title": "Ingeniero de Software Senior / Líder Técnico",
+      "subtitle": "Mohara",
+      "subtitleUrl": "https://mohara.co",
+      "period": "Dic 2024 - Presente",
+      "description": "Lideré y guié a un equipo de jóvenes pensadores de producto en la construcción de software de alta calidad, automatizando procesos de desarrollo y organizacionales y ofreciendo a nuestros clientes una experiencia excepcional."
+    },
+    {
+      "title": "Ingeniero de Software Nivel Medio",
+      "subtitle": "Mohara",
+      "subtitleUrl": "https://mohara.co",
+      "period": "Oct 2022 - Dic 2024",
+      "description": "Colaboré con equipos de ingeniería de software para desarrollar productos de muchas industrias y disciplinas diferentes. No solo desarrollé experiencia construyendo y escalando software con tecnologías de vanguardia, sino que también asumí retos de gestión de clientes y equipos."
+    },
+    {
+      "title": "Desarrollador de Software Junior",
+      "subtitle": "Gravity Epoch",
+      "subtitleUrl": "https://www.gravityepoch.com",
+      "period": "Mar 2020 - Oct 2022",
+      "description": "Pasé mis primeros días como ingeniero trabajando con un pequeño equipo de pensadores brillantes e innovadores, impulsando el desarrollo de productos con un enfoque multidisciplinario."
+    }
+  ],
+  "skills": [
+    {
+      "category": "Lenguajes de Programación",
+      "items": ["TypeScript", "Python", "Rust", "C", "C++", "C#", "Java"]
+    },
+    {
+      "category": "Frontend",
+      "items": [
+        "Next / React",
+        "Expo / React Native",
+        "Astro",
+        "HTML",
+        "CSS",
+        "Tailwind"
+      ]
+    },
+    {
+      "category": "Backend",
+      "items": [
+        "Node",
+        "Express",
+        "Django",
+        "PostgreSQL",
+        "MongoDB",
+        "REST APIs",
+        "GraphQL",
+        "tRPC"
+      ]
+    },
+    {
+      "category": "Herramientas y Plataformas",
+      "items": ["AWS", "Supabase", "Git", "Docker", "Linux"]
+    },
+    {
+      "category": "Herramientas de IA",
+      "items": ["Claude Code", "Gemini"]
+    },
+    {
+      "category": "Idiomas",
+      "items": ["Inglés (Bilingüe)", "Español (Nativo)"]
+    }
+  ],
+  "education": [
+    {
+      "title": "Ingeniería Robótica",
+      "subtitle": "Universidad de Guadalajara",
+      "subtitleUrl": "https://cucei.udg.mx",
+      "period": "2017 - 2022",
+      "description": "Forjé fundamentos muy sólidos en matemáticas, física, electrónica y software. Graduándome con honores, mientras me divertía construyendo proyectos tecnológicos emocionantes."
+    },
+    {
+      "title": "Licenciatura en Finanzas (Inconclusa)",
+      "subtitle": "ITAM",
+      "subtitleUrl": "https://www.itam.mx",
+      "period": "2015 - 2017",
+      "description": "Pasé mis primeros días universitarios aprendiendo sobre dinámicas de mercado y negocios. Aunque inconclusa, mi estancia aquí forjó en mí una alta exigencia de excelencia y calidad."
+    },
+    {
+      "title": "Campamento de Verano de Liderazgo",
+      "subtitle": "Phillips Exeter Academy",
+      "subtitleUrl": "https://www.exeter.edu",
+      "period": "2014",
+      "description": "Asistí a un programa de Liderazgo y Economía en New Hampshire, EE.UU. Compartí campus con adolescentes de más de 80 países, mientras aprendía y aplicaba habilidades de liderazgo que impactaron tanto mi vida personal como profesional hasta el día de hoy."
+    }
+  ]
+}

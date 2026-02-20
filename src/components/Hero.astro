@@ -27,11 +27,11 @@ const {
     <img src="/images/photo.jpeg" alt={name} class="hero-photo" />
   </div>
 
-  <h1 class="hero-name">{name}</h1>
-  <p class="hero-motto">{motto}</p>
+  <h1 class="hero-name" data-i18n="personal.name">{name}</h1>
+  <p class="hero-motto" data-i18n="personal.motto">{motto}</p>
 
   <a href={ctaHref} class="hero-cta">
-    {ctaText}
+    <span data-i18n="personal.ctaText">{ctaText}</span>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="20"

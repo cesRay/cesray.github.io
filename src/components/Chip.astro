@@ -1,12 +1,13 @@
 ---
 interface Props {
   label: string;
+  i18nKey?: string;
 }
 
-const { label } = Astro.props;
+const { label, i18nKey } = Astro.props;
 ---
 
-<span class="chip" data-skill={label.toLowerCase()}>{label}</span>
+<span class="chip" data-skill={label.toLowerCase()} data-i18n={i18nKey}>{label}</span>
 
 <style>
   .chip {

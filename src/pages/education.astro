@@ -1,27 +1,28 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ExperienceCard from "../components/ExperienceCard.astro";
-import resumeData from "../data/resume.json";
+import en from "../data/en.json";
 
-const { education } = resumeData;
+const { education, pages } = en;
 ---
 
 <Layout title="César Rayas">
   <section class="education-page">
-    <h1 class="page-title">Education</h1>
-    <p class="page-description">
-      My academic background and continuous learning journey.
+    <h1 class="page-title" data-i18n="pages.education.title">{pages.education.title}</h1>
+    <p class="page-description" data-i18n="pages.education.description">
+      {pages.education.description}
     </p>
 
     <div class="education-list">
       {
-        education.map((edu) => (
+        education.map((edu, i) => (
           <ExperienceCard
             title={edu.title}
             subtitle={edu.subtitle}
             subtitleUrl={edu.subtitleUrl}
             period={edu.period}
             description={edu.description}
+            i18nPrefix={`education.${i}`}
           />
         ))
       }
