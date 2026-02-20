@@ -44,7 +44,7 @@
 </button>
 
 <script>
-  const themeToggle = document.querySelector(".theme-toggle");
+  const themeToggles = document.querySelectorAll(".theme-toggle");
 
   // Check for saved theme preference or default to light
   const getTheme = () => {
@@ -65,10 +65,12 @@
   applyTheme(getTheme());
 
   // Toggle theme on button click
-  themeToggle?.addEventListener("click", () => {
-    const currentTheme = document.documentElement.getAttribute("data-theme");
-    const newTheme = currentTheme === "dark" ? "light" : "dark";
-    applyTheme(newTheme);
+  themeToggles.forEach((toggle) => {
+    toggle.addEventListener("click", () => {
+      const currentTheme = document.documentElement.getAttribute("data-theme");
+      const newTheme = currentTheme === "dark" ? "light" : "dark";
+      applyTheme(newTheme);
+    });
   });
 </script>
 
