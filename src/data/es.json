@@ -120,6 +120,10 @@
       "items": ["Claude Code", "Gemini"]
     },
     {
+      "category": "Habilidades Blandas",
+      "items": ["Liderazgo", "Comunicación", "Gestión de Clientes", "Criterio de Calidad", "Mentoría", "Empoderamiento de Equipos", "Metodologías Ágiles", "Resolución de Problemas"]
+    },
+    {
       "category": "Idiomas",
       "items": ["Inglés (Bilingüe)", "Español (Nativo)"]
     }

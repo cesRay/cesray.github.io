@@ -120,6 +120,10 @@
       "items": ["Claude Code", "Gemini"]
     },
     {
+      "category": "Soft Skills",
+      "items": ["Leadership", "Communication", "Client Management", "Quality Criteria", "Mentorship", "Team Empowerment", "Agile Methodologies", "Problem Solving"]
+    },
+    {
       "category": "Languages",
       "items": ["English (Bilingual)", "Spanish (Native)"]
     }
